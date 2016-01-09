@@ -1,0 +1,9 @@
+<br>
+<ol class="breadcrumb">
+    <li ng-repeat="list in options" ng-class="{ active: $last}">
+        <span ng-if="$last">{{list.name}}</span>
+        <a href="{{list.url}}" ng-if="!$last">{{list.name}}</a>
+    </li>
+</ol>
+
+<!--<pre>{{options}}</pre>-->

@@ -4,9 +4,9 @@ app.config(['$routeProvider', function ($routeProvider) {
       templateUrl: '/src/partials/home.html',
       controller: 'HomeCtrl'
     })
-    .when('/wallParser', {
-      templateUrl: '/src/partials/wall-parser/wall-parser.html',
-      controller: 'wallParserCtrl'
+    .when('/squareAnimate', {
+      templateUrl: '/src/partials/squareAnimate.html',
+      controller: 'squareAnimateCtrl'
     })
     .otherwise({
       redirectTo: '/'

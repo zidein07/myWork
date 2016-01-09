@@ -1,7 +1,7 @@
 app.directive('translateSelect', function () {
   return {
     restrict: 'E',
-    templateUrl: '/src/directive/base/select.html',
+    templateUrl: '/src/partials/base/select.html',
     controller: [
       '$scope', '$translate', 'localStorageService',
       function ($scope, $translate) {
