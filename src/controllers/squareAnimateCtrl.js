@@ -9,8 +9,8 @@ app.controller('squareAnimateCtrl', function ($scope, $http, $location) {
   var blockBlue = $('.blockBlue');
   var blockRed = $('.blockRed');
 
-  var w = habitat.width;
-  var h = habitat.height;
+  var w = habitat.width();
+  var h = habitat.height();
 
   blockProp = function(speed, size, x, y) {
     this.speed = speed;
@@ -19,23 +19,27 @@ app.controller('squareAnimateCtrl', function ($scope, $http, $location) {
     this.y = y;
   };
 
-  var BlockBlueProp = new blockProp(5, 20, 0, 0);
-  var BlockRedProp = new blockProp(5, 20, 0, 0);
+  var sizeBlock = blockBlue.height();
+
+  var BlockBlueProp = new blockProp(10, sizeBlock, 0, 0);
+  var BlockRedProp = new blockProp(5, sizeBlock, 0, 0);
 
   setInterval(function(){
-    BlockBlueProp.y += BlockBlueProp.speed;
-    BlockRedProp.x += BlockRedProp.speed;
-    if (BlockBlueProp.y >= 380 || BlockBlueProp.y < -380) {
+    BlockBlueProp.x += BlockBlueProp.speed;
+    BlockRedProp.y += BlockRedProp.speed;
+    if (BlockBlueProp.x >= w - BlockBlueProp.size || BlockBlueProp.x < -w + BlockBlueProp.size) {
       BlockBlueProp.speed = -BlockBlueProp.speed;
     }
-    if (BlockRedProp.x >= 380 || BlockRedProp.x < -380) {
+    if (BlockRedProp.y >= h - BlockRedProp.size || BlockRedProp.y < -h + BlockRedProp.size ) {
       BlockRedProp.speed = -BlockRedProp.speed;
     }
 
-    blockRed.css({top: BlockRedProp.x});
-    blockBlue.css({left: BlockBlueProp.y});
+    blockRed.css({top: BlockRedProp.y});
+    blockBlue.css({left: BlockBlueProp.x});
 
   }, 10);
+
+
 
 
 });
