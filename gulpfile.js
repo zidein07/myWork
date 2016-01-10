@@ -29,14 +29,10 @@ gulp.task('jscs', function () {
         .pipe(jscs());
 });
 
-//gulp.task('watch', function () {
-//  gulp.watch('')
-//});
-
 gulp.task('connect', ['less'], function () {
   browserSync.init({
     files: [
-      '/index.html',
+      'index.html',
       'src/partials/*.html',
       'src/partials/*/*.html',
       'src/style/*.css',
@@ -49,7 +45,7 @@ gulp.task('connect', ['less'], function () {
     notify: false,
     server: './'
   });
-  gulp.watch("./src/less/main.less", ['less']);
+  gulp.watch(["./src/less/main.less", "./src/less/*/*.less"], ['less']);
 });
 
 gulp.task('default',['connect']);
