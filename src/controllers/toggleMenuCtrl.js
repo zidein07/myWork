@@ -12,24 +12,24 @@ app.controller('toggleMenuCtrl', function ($scope) {
   var infoMenu = $('.infoMenu');
 
   blockBottom.find(button).click(function () {
-    if (blockBottom.hasClass('visiBle')){
-      blockBottom.animate({"bottom":"-200px"}, {duration: 300}).removeClass('visiBle');
+    if (blockBottom.hasClass('visible')){
+      blockBottom.animate({"bottom":"-150px"}, {duration: 300}).removeClass('visible');
     }else{
-      blockBottom.animate({"bottom":"0px"},  {duration: 300}).addClass('visiBle');
+      blockBottom.animate({"bottom":"0px"},  {duration: 300}).addClass('visible');
     }
   });
   blockLeft.find(button).click(function () {
-    if (blockLeft.hasClass('visiBle')){
-      blockLeft.animate({"left":"-200px"}, {duration: 300}).removeClass('visiBle');
+    if (blockLeft.hasClass('visible')){
+      blockLeft.animate({"left":"-200px"}, {duration: 300}).removeClass('visible');
     }else{
-      blockLeft.animate({"left":"0px"},  {duration: 300}).addClass('visiBle');
+      blockLeft.animate({"left":"0px"},  {duration: 300}).addClass('visible');
     }
   });
   blockRight.find(button).click(function () {
-    if (blockRight.hasClass('visiBle')){
-      blockRight.animate({"right":"-200px"}, {duration: 300}).removeClass('visiBle');
+    if (blockRight.hasClass('visible')){
+      blockRight.animate({"right":"-200px"}, {duration: 300}).removeClass('visible');
     }else{
-      blockRight.animate({"right":"0px"},  {duration: 300}).addClass('visiBle');
+      blockRight.animate({"right":"0px"},  {duration: 300}).addClass('visible');
     }
 
   });
