@@ -8,18 +8,16 @@ app.directive('toggleMenuDirective', function () {
     link: function (scope) {
       console.log('scope.props', scope.props);
       var position = scope.props.position;
-      scope.position = '123';
       if (position === 'left') {
-//        scope.position = 'toggleMenu';
-        $('.toggleMenu').addClass('toggleMenu-left');
+        scope.position = 'toggleMenu-left';
       }
 
       if (position === 'right') {
-        $('.toggleMenu').addClass('toggleMenu-right');
+        scope.position = 'toggleMenu-right';
       }
 
       if (position === 'bottom') {
-        $('.toggleMenu').addClass('toggleMenu-bottom');
+        scope.position = 'toggleMenu-bottom';
       }
       var button = $('.button');
       var blockLeft = $('.toggleMenu-left');
