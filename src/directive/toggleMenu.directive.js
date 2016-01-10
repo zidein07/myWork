@@ -8,6 +8,12 @@ app.directive('toggleMenuDirective', function ($timeout) {
     link: function (scope) {
       console.log('scope.props', scope.props);
       var position = scope.props.position;
+      scope.$watch('props', function (newVal, oldVal) {
+//        scope.props.position = newVal;
+        console.log('newVal', newVal);
+      }, true);
+
+
       var propObjDataFirst = {};
       var propObjDataSecond = {};
       if (position === 'left') {

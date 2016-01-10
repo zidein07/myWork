@@ -2,7 +2,7 @@
 <toggle-menu-directive props="toggleMenuProps"></toggle-menu-directive>
 
 <div class="laptop text-center col-lg-8 col-lg-offset-2">
-    <div class="btnChangePosition btnChangePosition-left"></div>
-    <div class="btnChangePosition btnChangePosition-right"></div>
-    <div class="btnChangePosition btnChangePosition-bottom"></div>
+    <div ng-click="positionBlock('left')" class="btnChangePosition btnChangePosition-left" ></div>
+    <div ng-click="positionBlock('right')" class="btnChangePosition btnChangePosition-right"></div>
+    <div ng-click="positionBlock('bottom')" class="btnChangePosition btnChangePosition-bottom"></div>
 </div>

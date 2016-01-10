@@ -10,4 +10,8 @@ app.controller('toggleMenuCtrl', function ($scope) {
     position: 'left'
   };
 
+  $scope.positionBlock = function(pos) {
+    $scope.toggleMenuProps.position = pos;
+  }
+
 });
