@@ -1,4 +1,4 @@
-app.directive('toggleMenuDirective', function () {
+app.directive('toggleMenuDirective', function ($timeout) {
   return {
     restrict: 'E',
     templateUrl: '/src/partials/base/toggleMenu.html',
@@ -8,43 +8,35 @@ app.directive('toggleMenuDirective', function () {
     link: function (scope) {
       console.log('scope.props', scope.props);
       var position = scope.props.position;
+      var propObjDataFirst = {};
+      var propObjDataSecond = {};
       if (position === 'left') {
         scope.position = 'toggleMenu-left';
+        propObjDataFirst = {'left': '-200px'};
+        propObjDataSecond = {'left': '0px'};
       }
 
       if (position === 'right') {
         scope.position = 'toggleMenu-right';
+        propObjDataFirst = {'right': '-200px'};
+        propObjDataSecond = {'right': '0px'};
       }
 
       if (position === 'bottom') {
         scope.position = 'toggleMenu-bottom';
+        propObjDataFirst = {'bottom': '-150px'};
+        propObjDataSecond = {'bottom': '0px'};
       }
-      var button = $('.button');
-      var blockLeft = $('.toggleMenu-left');
-      var blockRight = $('.toggleMenu-right');
-      var blockBottom = $('.toggleMenu-bottom');
-      var infoMenu = $('.infoMenu');
-
-      blockBottom.find(button).click(function () {
-        if (blockBottom.hasClass('visible')) {
-          blockBottom.animate({"bottom": "-150px"}, {duration: 300}).removeClass('visible');
-        } else {
-          blockBottom.animate({"bottom": "0px"}, {duration: 300}).addClass('visible');
-        }
-      });
-      blockLeft.find(button).click(function () {
-        if (blockLeft.hasClass('visible')) {
-          blockLeft.animate({"left": "-200px"}, {duration: 300}).removeClass('visible');
-        } else {
-          blockLeft.animate({"left": "0px"}, {duration: 300}).addClass('visible');
-        }
-      });
-      blockRight.find(button).click(function () {
-        if (blockRight.hasClass('visible')) {
-          blockRight.animate({"right": "-200px"}, {duration: 300}).removeClass('visible');
-        } else {
-          blockRight.animate({"right": "0px"}, {duration: 300}).addClass('visible');
-        }
+      $timeout(function () {
+        var $button = $('.toggleMenu .button');
+        var $toggleMenu = $('.toggleMenu');
+        $toggleMenu.find($button).click(function () {
+          if ($toggleMenu.hasClass('visible')) {
+            $toggleMenu.animate(propObjDataFirst, {duration: 300}).removeClass('visible');
+          } else {
+            $toggleMenu.animate(propObjDataSecond, {duration: 300}).addClass('visible');
+          }
+        });
       });
     }
   };
