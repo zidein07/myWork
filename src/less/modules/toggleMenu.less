@@ -1,4 +1,46 @@
-.blockMenu {
-  border:1px solid black;
+@toggleMenuButtonSizeWidth: 70px;
+@toggleMenuButtonSizeHeight: 30px;
+
+.toggleMenu {
+  border: 1px solid #999;
+  position: fixed;
+  transition: ease-in .5s;
   width: 200px;
+  button {
+    width: @toggleMenuButtonSizeWidth;
+    height: @toggleMenuButtonSizeHeight;
+    position: absolute;
+    border: 1px solid #999;
+  }
+}
+
+.toggleMenu-left {
+  left: 0;
+  button {
+    right: -@toggleMenuButtonSizeWidth;
+    top: -1px;
+  }
+}
+
+.toggleMenu-right {
+  right: 0;
+  button {
+    left: -@toggleMenuButtonSizeWidth;
+    top: -1px;
+  }
+}
+
+.toggleMenu-top {
+  button {
+    top: -@toggleMenuButtonSizeHeight;
+    right: -1px;
+  }
+}
+
+.toggleMenu-bottom {
+  bottom: 0;
+  button {
+    top: -@toggleMenuButtonSizeHeight;
+    left: -1px;
+  }
 }

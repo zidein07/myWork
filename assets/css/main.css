@@ -30,7 +30,40 @@
 .blockBlue {
   background: blue;
 }
-.blockMenu {
-  border: 1px solid black;
+.toggleMenu {
+  border: 1px solid #999;
+  position: fixed;
+  transition: ease-in 0.5s;
   width: 200px;
+}
+.toggleMenu button {
+  width: 70px;
+  height: 30px;
+  position: absolute;
+  border: 1px solid #999;
+}
+.toggleMenu-left {
+  left: 0;
+}
+.toggleMenu-left button {
+  right: -70px;
+  top: -1px;
+}
+.toggleMenu-right {
+  right: 0;
+}
+.toggleMenu-right button {
+  left: -70px;
+  top: -1px;
+}
+.toggleMenu-top button {
+  top: -30px;
+  right: -1px;
+}
+.toggleMenu-bottom {
+  bottom: 0;
+}
+.toggleMenu-bottom button {
+  top: -30px;
+  left: -1px;
 }
