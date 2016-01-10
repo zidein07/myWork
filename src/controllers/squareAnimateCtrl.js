@@ -33,8 +33,4 @@ app.controller('squareAnimateCtrl', function ($scope, $http, $location) {
     blockRed.css({top: BlockRedProp.y});
     blockBlue.css({left: BlockBlueProp.x});
   }, 10);
-
-
-
-
 });

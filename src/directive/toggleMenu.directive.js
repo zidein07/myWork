@@ -3,9 +3,24 @@ app.directive('toggleMenuDirective', function () {
     restrict: 'E',
     templateUrl: '/src/partials/base/toggleMenu.html',
     scope: {
-      options: '='
+      props: '='
     },
     link: function (scope) {
+      console.log('scope.props', scope.props);
+      var position = scope.props.position;
+      scope.position = '123';
+      if (position === 'left') {
+//        scope.position = 'toggleMenu';
+        $('.toggleMenu').addClass('toggleMenu-left');
+      }
+
+      if (position === 'right') {
+        $('.toggleMenu').addClass('toggleMenu-right');
+      }
+
+      if (position === 'bottom') {
+        $('.toggleMenu').addClass('toggleMenu-bottom');
+      }
       var button = $('.button');
       var blockLeft = $('.toggleMenu-left');
       var blockRight = $('.toggleMenu-right');

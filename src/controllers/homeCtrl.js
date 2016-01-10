@@ -12,7 +12,7 @@ app.controller('HomeCtrl', function ($scope, $http, $location) {
     {
       name: 'Toggle menu',
       slug: 'toggleMenu',
-      img: '/assets/img/squareAnimate.png',
+      img: '/assets/img/toggleMenu.png',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
     }
   ];
