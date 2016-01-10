@@ -6,45 +6,46 @@ app.directive('toggleMenuDirective', function ($timeout) {
       props: '='
     },
     link: function (scope) {
-      console.log('scope.props', scope.props);
       var position = scope.props.position;
       scope.$watch('props', function (newVal, oldVal) {
-//        scope.props.position = newVal;
-        console.log('newVal', newVal);
+        scope.position = newVal;
+        render(scope.position.position, oldVal.position);
       }, true);
+      var render = function (position, oldVal) {
+        $('.toggleMenu').removeClass('toggleMenu-' + oldVal);
+        $('.toggleMenu').addClass('toggleMenu-' + position);
+        var propObjDataFirst = undefined;
+        var propObjDataSecond = undefined;
+        if (position === 'left') {
+          propObjDataFirst = {'left': '-200px'};
+          propObjDataSecond = {'left': '0px'};
+        }
 
+        if (position === 'right') {
+          propObjDataFirst = {'right': '-200px'};
+          propObjDataSecond = {'right': '0px'};
+        }
 
-      var propObjDataFirst = {};
-      var propObjDataSecond = {};
-      if (position === 'left') {
-        scope.position = 'toggleMenu-left';
-        propObjDataFirst = {'left': '-200px'};
-        propObjDataSecond = {'left': '0px'};
-      }
+        if (position === 'bottom') {
+          propObjDataFirst = {'bottom': '-150px'};
+          propObjDataSecond = {'bottom': '0px'};
+        }
 
-      if (position === 'right') {
-        scope.position = 'toggleMenu-right';
-        propObjDataFirst = {'right': '-200px'};
-        propObjDataSecond = {'right': '0px'};
-      }
-
-      if (position === 'bottom') {
-        scope.position = 'toggleMenu-bottom';
-        propObjDataFirst = {'bottom': '-150px'};
-        propObjDataSecond = {'bottom': '0px'};
-      }
-
-      $timeout(function () {
-        var $button = $('.toggleMenu .button');
-        var $toggleMenu = $('.toggleMenu');
-        $toggleMenu.find($button).click(function () {
-          if ($toggleMenu.hasClass('visible')) {
-            $toggleMenu.animate(propObjDataFirst, {duration: 300}).removeClass('visible');
-          } else {
-            $toggleMenu.animate(propObjDataSecond, {duration: 300}).addClass('visible');
-          }
+        $timeout(function () {
+          $('button').unbind();
+          var $toggleMenu = $('.toggleMenu');
+          var $button = $('.toggleMenu .button');
+          $toggleMenu.attr('style', '');
+          $toggleMenu.addClass('visible');
+          $toggleMenu.find($button).click(function () {
+            if ($toggleMenu.hasClass('visible')) {
+              $toggleMenu.animate(propObjDataFirst, {duration: 300}).removeClass('visible');
+            } else {
+              $toggleMenu.animate(propObjDataSecond, {duration: 300}).addClass('visible');
+            }
+          });
         });
-      });
+      }
     }
   };
 });
