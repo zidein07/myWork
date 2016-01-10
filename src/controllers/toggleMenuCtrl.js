@@ -5,8 +5,9 @@ app.controller('toggleMenuCtrl', function ($scope) {
     name: 'Toggle menu',
     url: 'toggleMenu'
   }];
+
   $scope.toggleMenuProps = {
-    position: 'bottom'
+    position: 'left'
   };
 
 });

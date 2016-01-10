@@ -27,6 +27,7 @@ app.directive('toggleMenuDirective', function ($timeout) {
         propObjDataFirst = {'bottom': '-150px'};
         propObjDataSecond = {'bottom': '0px'};
       }
+
       $timeout(function () {
         var $button = $('.toggleMenu .button');
         var $toggleMenu = $('.toggleMenu');
