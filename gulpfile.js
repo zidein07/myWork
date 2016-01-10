@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
+var less = require('gulp-less');
 var eslint = require('gulp-eslint');
 var jscs = require('gulp-jscs');
 
@@ -12,6 +13,14 @@ gulp.task('eslint', function() {
 });
 
 
+
+gulp.task('less', function () {
+  return gulp.src('./src/less/main.less')
+    .pipe(less())
+    .pipe(gulp.dest('./assets/css'))
+    .pipe(browserSync.stream());
+});
+
 gulp.task('test', ['eslint', 'jscs']);
 
 gulp.task('jscs', function () {
@@ -20,21 +29,27 @@ gulp.task('jscs', function () {
         .pipe(jscs());
 });
 
-gulp.task('connect', function () {
-  return browserSync.init({
+//gulp.task('watch', function () {
+//  gulp.watch('')
+//});
+
+gulp.task('connect', ['less'], function () {
+  browserSync.init({
     files: [
-      'index.html',
+      '/index.html',
       'src/partials/*.html',
       'src/partials/*/*.html',
-      'src/*.css',
+      'src/style/*.css',
+      'src/*/*/*.js',
       'src/*/*.js',
       'src/*.js'
     ],
     port: 3000,
-    logConnections: true,
+    logConnections: false,
     notify: false,
     server: './'
   });
+  gulp.watch("./src/less/main.less", ['less']);
 });
 
 gulp.task('default',['connect']);

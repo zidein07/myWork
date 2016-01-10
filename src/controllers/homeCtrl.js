@@ -8,6 +8,12 @@ app.controller('HomeCtrl', function ($scope, $http, $location) {
       slug: 'squareAnimate',
       img: '/assets/img/squareAnimate.png',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    },
+    {
+      name: 'Toggle menu',
+      slug: 'toggleMenu',
+      img: '/assets/img/squareAnimate.png',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
     }
   ];
   $scope.goToPage = function (name) {
