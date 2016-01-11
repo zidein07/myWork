@@ -14,6 +14,12 @@ app.controller('HomeCtrl', function ($scope, $http, $location) {
       slug: 'toggleMenu',
       img: '/assets/img/toggleMenu.png',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    },
+    {
+      name: 'Slider',
+      slug: 'slider',
+      img: '/assets/img/toggleMenu.png',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
     }
   ];
   $scope.goToPage = function (name) {

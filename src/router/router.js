@@ -12,6 +12,10 @@ app.config(['$routeProvider', function ($routeProvider) {
       templateUrl: '/src/partials/toggleMenu.html',
       controller: 'toggleMenuCtrl'
     })
+    .when('/slider', {
+      templateUrl: '/src/partials/slider.html',
+      controller: 'sliderCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });
