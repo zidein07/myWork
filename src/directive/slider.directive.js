@@ -16,7 +16,7 @@ app.directive('sliderDirective', function () {
       });
       scope.nextSlide = function (loc) {
         var $sliderAllImg = $('.sliderAllImg');
-        var timeChangeImg = 1000;
+        var timeChangeImg = 2000;
         var typeAnimate = 'easeOutBounce';
         var widthSlide = 800;
         if (animateStatus) {
