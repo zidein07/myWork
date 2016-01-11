@@ -99,7 +99,13 @@
   height: 400px;
   position: relative;
   box-shadow: 0 3px 4px #777;
-  background: linear-gradient(#fff, #999);
+  width: 800px;
+  overflow: hidden;
+}
+.sliderContent .sliderAllImg {
+  width: 10000em;
+  position: absolute;
+  left: 20px;
 }
 .sliderContent .sliderButton {
   width: 50px;
@@ -116,6 +122,9 @@
   position: absolute;
   top: 175px;
 }
+.sliderContent li {
+  padding: 0;
+}
 .sliderContent .sliderButton:hover {
   opacity: 1;
 }
@@ -126,6 +135,6 @@
   left: 0;
 }
 .sliderContent .slideImg {
-  width: 100%;
-  height: 100%;
+  width: 800px;
+  height: 400px;
 }

@@ -8,14 +8,31 @@ app.directive('sliderDirective', function () {
     link: function (scope) {
       console.log('scope', scope.props);
       var count = 0;
-      var propsLength = scope.props.length;
-      scope.imgScope = scope.props[0];
+      scope.imgScope = scope.props;
+      var countMaxLength = scope.props.length;
       scope.$watch('imgScope', function (newVal, oldVal) {
 
       });
-     nextSlide = function (loc) {
+      scope.nextSlide = function (loc) {
+        var $sliderAllImg = $('.sliderAllImg');
+        var timeChangeImg = 2000;
+        var typeAnimate = 'easeOutBounce';
+        var widthSlide = 800;
+        if (loc === 'left') {
+          count--;
+          if (count < 0) {
+            count = countMaxLength - 1;
+          }
+          $sliderAllImg.animate({'left': (-count * widthSlide) + 20 + 'px'}, timeChangeImg, typeAnimate)
+        }
+        if (loc === 'right') {
           count++;
-          console.log('count', count);
+          if (count > countMaxLength - 1) {
+            count = 0;
+          }
+          $sliderAllImg.animate({'left': (-count * widthSlide) + 20 + 'px'}, timeChangeImg, typeAnimate);
+        }
+
       }
     }
   };

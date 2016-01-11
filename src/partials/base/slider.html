@@ -1,6 +1,10 @@
 <div class="sliderContent col-lg-8 col-xs-offset-2">
-    <div class="row">
-        <img class="slideImg" ng-src="{{imgScope}}">
+    <div class="row sliderAllImg">
+        <ul class="list list-inline">
+            <li ng-repeat="key in imgScope">
+                <img class="slideImg" ng-src="{{key}}">
+            </li>
+        </ul>
     </div>
     <div ng-click="nextSlide('left')" class="sliderButton sliderButton-toLeft"><</div>
     <div ng-click="nextSlide('right')" class="sliderButton sliderButton-toRight">></div>
