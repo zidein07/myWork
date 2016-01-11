@@ -12,8 +12,9 @@ app.directive('toggleMenuDirective', function ($timeout) {
         render(scope.position.position, oldVal.position);
       }, true);
       var render = function (position, oldVal) {
-        $('.toggleMenu').removeClass('toggleMenu-' + oldVal);
-        $('.toggleMenu').addClass('toggleMenu-' + position);
+        var $toggleMenu = $('.toggleMenu');
+        $toggleMenu.removeClass('toggleMenu-' + oldVal);
+        $toggleMenu.addClass('toggleMenu-' + position);
         var propObjDataFirst = undefined;
         var propObjDataSecond = undefined;
         if (position === 'left') {
@@ -33,7 +34,6 @@ app.directive('toggleMenuDirective', function ($timeout) {
 
         $timeout(function () {
           $('button').unbind();
-          var $toggleMenu = $('.toggleMenu');
           var $button = $('.toggleMenu .button');
           $toggleMenu.attr('style', '');
           $toggleMenu.addClass('visible');
