@@ -8,6 +8,7 @@ app.directive('sliderDirective', function () {
     link: function (scope) {
       console.log('scope', scope.props);
       var count = 0;
+      var animateStatus = false;
       scope.imgScope = scope.props;
       var countMaxLength = scope.props.length;
       scope.$watch('imgScope', function (newVal, oldVal) {
@@ -15,22 +16,30 @@ app.directive('sliderDirective', function () {
       });
       scope.nextSlide = function (loc) {
         var $sliderAllImg = $('.sliderAllImg');
-        var timeChangeImg = 2000;
+        var timeChangeImg = 1000;
         var typeAnimate = 'easeOutBounce';
         var widthSlide = 800;
-        if (loc === 'left') {
-          count--;
-          if (count < 0) {
-            count = countMaxLength - 1;
+        if (animateStatus) {
+          setTimeout(function () {
+            animateStatus = false;
+          }, timeChangeImg + 200);
+        } else {
+          if (loc === 'left') {
+            count--;
+            if (count < 0) {
+              count = countMaxLength - 1;
+            }
+            $sliderAllImg.animate({'left': (-count * widthSlide) + 20 + 'px'}, timeChangeImg, typeAnimate);
+            animateStatus = true;
           }
-          $sliderAllImg.animate({'left': (-count * widthSlide) + 20 + 'px'}, timeChangeImg, typeAnimate)
-        }
-        if (loc === 'right') {
-          count++;
-          if (count > countMaxLength - 1) {
-            count = 0;
+          if (loc === 'right') {
+            count++;
+            if (count > countMaxLength - 1) {
+              count = 0;
+            }
+            $sliderAllImg.animate({'left': (-count * widthSlide) + 20 + 'px'}, timeChangeImg, typeAnimate);
+            animateStatus = true;
           }
-          $sliderAllImg.animate({'left': (-count * widthSlide) + 20 + 'px'}, timeChangeImg, typeAnimate);
         }
 
       }
