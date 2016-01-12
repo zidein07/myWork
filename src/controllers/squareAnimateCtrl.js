@@ -29,7 +29,9 @@ app.controller('squareAnimateCtrl', function ($scope, $http, $location) {
     }
     console.log('BlockRedProp.y', BlockRedProp.y);
     if (BlockBlueProp.x >= 0 && BlockBlueProp.x <= BlockBlueProp.size &&
-      BlockRedProp.y >= 0 && BlockRedProp.y <= BlockRedProp.size) {
+      BlockRedProp.y >= 0 && BlockRedProp.y <= BlockRedProp.size ||
+      BlockBlueProp.x <= 0 && BlockBlueProp.x >= -BlockBlueProp.size &&
+      BlockRedProp.y <= 0 && BlockRedProp.y >= BlockRedProp.size) {
       BlockBlueProp.speed = -BlockBlueProp.speed;
       BlockRedProp.speed = -BlockRedProp.speed;
     }
