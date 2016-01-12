@@ -19,18 +19,22 @@ app.controller('squareAnimateCtrl', function ($scope, $http, $location) {
     this.y = y;
   };
   var sizeBlock = blockBlue.height();
-  var BlockBlueProp = new blockProp(10, sizeBlock, 0, 0);
-  var BlockRedProp = new blockProp(5, sizeBlock, 0, 0);
+  var BlockBlueProp = new blockProp(100, sizeBlock, 0, 0);
+  var BlockRedProp = new blockProp(2, sizeBlock, 0, 0);
   setInterval(function () {
     BlockBlueProp.x += BlockBlueProp.speed;
     BlockRedProp.y += BlockRedProp.speed;
     if (BlockBlueProp.x >= w - BlockBlueProp.size || BlockBlueProp.x < -w + BlockBlueProp.size) {
       BlockBlueProp.speed = -BlockBlueProp.speed;
     }
+    if (BlockBlueProp.x === 0 || BlockBlueProp.x === BlockBlueProp.size && BlockRedProp.y === 0) {
+      BlockBlueProp.speed = -BlockBlueProp.speed;
+      BlockRedProp.speed = -BlockRedProp.speed;
+    }
     if (BlockRedProp.y >= h - BlockRedProp.size || BlockRedProp.y < -h + BlockRedProp.size) {
       BlockRedProp.speed = -BlockRedProp.speed;
     }
     blockRed.css({top: BlockRedProp.y});
     blockBlue.css({left: BlockBlueProp.x});
-  }, 10);
+  }, 1);
 });

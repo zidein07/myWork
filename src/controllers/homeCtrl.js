@@ -18,7 +18,7 @@ app.controller('HomeCtrl', function ($scope, $http, $location) {
     {
       name: 'Slider',
       slug: 'slider',
-      img: '/assets/img/toggleMenu.png',
+      img: '/assets/img/slider.png',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
     }
   ];

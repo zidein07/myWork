@@ -22,7 +22,7 @@ app.directive('sliderDirective', function () {
         if (animateStatus) {
           setTimeout(function () {
             animateStatus = false;
-          }, timeChangeImg + 200);
+          }, timeChangeImg);
         } else {
           if (loc === 'left') {
             count--;
